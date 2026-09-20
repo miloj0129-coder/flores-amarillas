@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#050907" />
-  <title>🌻 Galaxia de Amor</title>
+  <meta name="theme-color" content="#030509" />
+  <title>🌻 Galaxia de Amor · Flores Amarillas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
@@ -15,41 +15,23 @@
     <canvas id="space" aria-hidden="true"></canvas>
     <div class="aurora aurora-a"></div><div class="aurora aurora-b"></div>
     <header class="intro">
-      <p class="eyebrow">✦ un rincón del universo para ti ✦</p>
+      <p class="eyebrow">✦ un pequeño universo hecho para ti ✦</p>
       <h1>🌻 Galaxia de Amor<br><em>+ Flores Amarillas</em> ✨</h1>
-      <p class="subtext">Entra despacio. Arrastra para viajar, acerca el cursor a las flores y toca la que te llame.</p>
+      <p class="subtext">Muévete por el espacio, acércate a las flores y descubre los mensajes que guardan para ti.</p>
     </header>
 
-    <section class="galaxy" id="galaxy" aria-label="Galaxia interactiva de flores amarillas">
+    <section class="galaxy" id="galaxy" aria-label="Galaxia 3D interactiva">
       <div class="milky-way"></div><div class="ground-glow"></div>
       <div class="orbital-ring ring-back"></div><div class="orbital-ring ring-front"></div>
       <div class="love-sun"><span>♡</span></div>
-      <p class="hint">ARRASTRA PARA MIRAR ALREDEDOR<br><small>cada flor guarda un mensaje</small></p>
-      <div class="message-trail trail-a">siempre contigo</div><div class="message-trail trail-b">mi lugar favorito</div><div class="message-trail trail-c">te pienso 💛</div>
-
-      <button class="botanical flower sunflower f1" data-message="Me encanta la forma en que haces que todo se sienta un poquito más bonito." aria-label="Flor con mensaje">
-        <span class="stem"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="petal-set"></span><span class="center"></span>
-      </button>
-      <button class="botanical flower daisy f2" data-message="Si hoy necesitas una señal, aquí está: eres importante, eres querida y mereces cosas hermosas." aria-label="Flor con mensaje">
-        <span class="stem"></span><span class="leaf l1"></span><span class="petal-set"></span><span class="center"></span>
-      </button>
-      <button class="botanical flower rose f3" data-message="Gracias por estar. Tu presencia tiene esa magia tranquila que hace bien al corazón." aria-label="Flor con mensaje">
-        <span class="stem"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="petal-set"></span><span class="center"></span>
-      </button>
-      <button class="botanical flower sunflower f4" data-message="Ojalá pudieras verte como te veo yo: luminosa, especial y absolutamente irremplazable." aria-label="Flor con mensaje">
-        <span class="stem"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="petal-set"></span><span class="center"></span>
-      </button>
-      <button class="botanical flower daisy f5" data-message="Contigo hasta el silencio se siente bonito. Qué suerte coincidir contigo en este universo." aria-label="Flor con mensaje">
-        <span class="stem"></span><span class="leaf l1"></span><span class="petal-set"></span><span class="center"></span>
-      </button>
-      <button class="botanical flower rose f6" data-message="Te guardo un abrazo enorme, de esos que dicen sin palabras: aquí estoy y te quiero mucho." aria-label="Flor con mensaje">
-        <span class="stem"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="petal-set"></span><span class="center"></span>
-      </button>
+      <p class="hint">ARRASTRA PARA VIAJAR<br><small>TOCA UNA FLOR</small></p>
+      <div class="flower-field" id="flowerField"></div>
       <p class="bottom-note">hecho con luz, paciencia y mucho cariño <span>♥</span></p>
     </section>
 
     <button class="surprise" id="surprise">✨ encontrar una sorpresa</button>
-    <footer>toca una flor · mueve la galaxia · quédate un ratito 🌻</footer>
+    <p class="scroll-note">Cada flor tiene una historia. Quédate un ratito.</p>
+    <footer>toca · arrastra · explora · sonríe 🌻</footer>
   </main>
 
   <div class="modal" id="modal" aria-hidden="true">
