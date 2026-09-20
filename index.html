@@ -1,143 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flores Amarillas</title>
-    <meta
-      name="description"
-      content="Un lugar dinámico y lleno de luz con flores amarillas, frases bellas y un diseño alegre."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Un universo 3D de flores amarillas, frases bonitas y magia." />
+  <title>Amarillo · Un universo para ti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-      <header class="hero">
-        <nav class="topbar">
-          <div class="brand">🌼 Flores Amarillas</div>
-          <div class="nav-links">
-            <a href="#frases">Frases</a>
-            <a href="#momentos">Momentos</a>
-            <a href="#contacto">Brillo</a>
-          </div>
-        </nav>
+  <main class="universe">
+    <nav class="nav">
+      <a class="logo" href="#inicio"><span class="logo-dot"></span> AMARILLO</a>
+      <div class="nav-links">
+        <a href="#historia">La historia</a>
+        <a href="#frase">Una frase</a>
+        <button class="sound-button" id="sparkButton" type="button">✦ Crear magia</button>
+      </div>
+    </nav>
 
-        <div class="hero-content">
-          <div class="hero-copy">
-            <span class="eyebrow">Luz, color y alegría</span>
-            <h1>Un rincón para sentir la belleza del día.</h1>
-            <p>
-              Aquí cada flor amarilla cuenta una historia, cada frase despierta una sonrisa
-              y cada instante parece más brillante cuando se mira con el corazón.
-            </p>
-            <div class="cta-group">
-              <a class="btn btn-primary" href="#frases">Ver frases</a>
-              <a class="btn btn-secondary" href="#momentos">Explorar</a>
-            </div>
-          </div>
-
-          <div class="floral-scene" aria-label="Escena floral con flores amarillas">
-            <div class="sun-glow"></div>
-            <div class="flower flower-large">
-              <span class="petal petal-1"></span>
-              <span class="petal petal-2"></span>
-              <span class="petal petal-3"></span>
-              <span class="petal petal-4"></span>
-              <span class="petal petal-5"></span>
-              <span class="petal petal-6"></span>
-              <span class="center"></span>
-            </div>
-            <div class="flower flower-small flower-small-a">
-              <span class="petal petal-1"></span>
-              <span class="petal petal-2"></span>
-              <span class="petal petal-3"></span>
-              <span class="petal petal-4"></span>
-              <span class="petal petal-5"></span>
-              <span class="petal petal-6"></span>
-              <span class="center"></span>
-            </div>
-            <div class="flower flower-small flower-small-b">
-              <span class="petal petal-1"></span>
-              <span class="petal petal-2"></span>
-              <span class="petal petal-3"></span>
-              <span class="petal petal-4"></span>
-              <span class="petal petal-5"></span>
-              <span class="petal petal-6"></span>
-              <span class="center"></span>
-            </div>
-          </div>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="kicker"><span></span> Bienvenido a otro universo</p>
+        <h1>Donde las flores<br><em>giran contigo.</em></h1>
+        <p class="intro">Un pequeño planeta hecho de luz, pétalos amarillos y todo eso bonito que merece quedarse para siempre.</p>
+        <div class="hero-actions">
+          <button class="primary-button" id="openMessage" type="button">Abrir un mensaje <span>↗</span></button>
+          <a class="scroll-link" href="#historia">Explorar el universo <span>↓</span></a>
         </div>
-      </header>
+      </div>
 
-      <main>
-        <section class="quote-bar" id="frases">
-          <div class="quote-card">
-            <p class="label">Frase del momento</p>
-            <blockquote id="quoteText">
-              “La vida se vuelve más hermosa cuando aprendes a ver la luz en lo simple.”
-            </blockquote>
-            <div class="quote-footer">
-              <span id="quoteAuthor">- Inspiración diaria</span>
-            </div>
+      <div class="scene-wrap" id="scene" aria-label="Planeta 3D de flores amarillas. Arrastra para girarlo.">
+        <div class="scene-hint">ARRASTRA PARA GIRAR <span>↔</span></div>
+        <div class="orbit orbit-back"></div>
+        <div class="planet-system" id="planetSystem">
+          <div class="planet-glow"></div>
+          <div class="flower-planet">
+            <span class="planet-highlight"></span>
+            <div class="mini-flower flower-a">✦</div>
+            <div class="mini-flower flower-b">✿</div>
+            <div class="mini-flower flower-c">✦</div>
+            <div class="mini-flower flower-d">✿</div>
+            <div class="mini-flower flower-e">✦</div>
           </div>
-        </section>
+          <div class="ring ring-one"></div>
+          <div class="ring ring-two"></div>
+          <div class="ring-label">FLORES · LUZ · TÚ</div>
+        </div>
+        <div class="orbit orbit-front"></div>
+        <div class="floating-note note-one">para ti ♡</div>
+        <div class="floating-note note-two">🌼</div>
+      </div>
+    </section>
 
-        <section class="features" id="momentos">
-          <article class="feature-card">
-            <div class="icon">☀️</div>
-            <h3>Brillo</h3>
-            <p>Todo se siente más cálido cuando hay esperanza y alegría en cada paso.</p>
-          </article>
+    <section class="story section" id="historia">
+      <div class="section-number">01 / 03</div>
+      <div class="section-content">
+        <p class="kicker"><span></span> El significado</p>
+        <h2>Un planeta con<br><em>un corazón amarillo.</em></h2>
+        <p>Las flores amarillas son una forma de decir “te pienso”, “te admiro” y “quiero que sonrías”. Este espacio es una galaxia pequeña para recordarlo.</p>
+        <div class="stat-row"><div><strong>∞</strong><span>momentos bonitos</span></div><div><strong>1</strong><span>mensaje para ti</span></div><div><strong>100%</strong><span>buena vibra</span></div></div>
+      </div>
+    </section>
 
-          <article class="feature-card">
-            <div class="icon">🌼</div>
-            <h3>Flores</h3>
-            <p>Las flores amarillas simbolizan claridad, felicidad y un corazón lleno de luz.</p>
-          </article>
+    <section class="quote-section section" id="frase">
+      <div class="section-number">02 / 03</div>
+      <div class="quote-content">
+        <p class="kicker"><span></span> Señal recibida</p>
+        <blockquote id="quoteText">“Si el universo fuera un jardín, tú serías mi flor favorita.”</blockquote>
+        <p class="quote-author" id="quoteAuthor">— Desde un rincón lleno de luz</p>
+        <button class="outline-button" id="newQuote" type="button">Otra frase <span>↻</span></button>
+      </div>
+    </section>
 
-          <article class="feature-card">
-            <div class="icon">💛</div>
-            <h3>Frases</h3>
-            <p>Cada palabra puede convertir un día gris en una historia hermosa y memorable.</p>
-          </article>
-        </section>
+    <section class="final-section section">
+      <div class="final-card">
+        <span class="final-icon">🌼</span>
+        <p>Para cuando necesites un poquito de luz</p>
+        <h2>Que nunca te falten<br><em>razones para florecer.</em></h2>
+        <button class="primary-button" id="finalSpark" type="button">Llenar de estrellas <span>✦</span></button>
+      </div>
+    </section>
 
-        <section class="gallery-section">
-          <div class="section-heading">
-            <span class="eyebrow">Vive la belleza</span>
-            <h2>Pequeños momentos que iluminan</h2>
-          </div>
+    <footer><span>AMARILLO</span> · hecho con luz y flores</footer>
+  </main>
 
-          <div class="gallery-grid">
-            <div class="photo-card card-one">
-              <span>Risas</span>
-            </div>
-            <div class="photo-card card-two">
-              <span>Calma</span>
-            </div>
-            <div class="photo-card card-three">
-              <span>Esperanza</span>
-            </div>
-            <div class="photo-card card-four">
-              <span>Amor</span>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer" id="contacto">
-        <p>🌼 Que cada día te recuerde que la belleza también vive dentro de ti.</p>
-      </footer>
+  <div class="modal" id="messageModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-button" id="closeMessage" aria-label="Cerrar">×</button>
+      <span class="modal-flower">🌼</span>
+      <p class="kicker"><span></span> Mensaje desbloqueado</p>
+      <h2 id="modalTitle">Eres una persona<br><em>muy especial.</em></h2>
+      <p>Que este pequeño universo te recuerde que hay belleza en ti, incluso en los días nublados.</p>
+      <button class="primary-button" id="modalSpark" type="button">Guardar el momento ✦</button>
     </div>
-
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>
