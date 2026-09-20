@@ -1,3 +1,31 @@
-const canvas=document.querySelector('#space');const ctx=canvas.getContext('2d');let particles=[];let w=0,h=0;function resize(){const r=canvas.getBoundingClientRect();w=canvas.width=r.width*devicePixelRatio;h=canvas.height=r.height*devicePixelRatio;ctx.scale(devicePixelRatio,devicePixelRatio);w=r.width;h=r.height;particles=Array.from({length:180},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+.3,a:Math.random(),s:Math.random()*.25+.05,kind:Math.random()}))}function draw(){ctx.clearRect(0,0,w,h);for(const p of particles){p.y+=p.s;if(p.y>h)p.y=-3;p.a+=.025;const alpha=.25+Math.abs(Math.sin(p.a))*0.7;ctx.fillStyle=p.kind>.82?'rgba(255,246,45,'+alpha+')':'rgba(255,255,200,'+alpha+')';ctx.beginPath();if(p.kind>.82){ctx.arc(p.x,p.y,p.r*3,0,Math.PI*2)}else{ctx.rect(p.x,p.y,p.r,p.r)}ctx.fill()}requestAnimationFrame(draw)}resize();addEventListener('resize',resize);draw();
-const phrases=['Eres la flor más bonita de este pequeño universo.','Tu sonrisa hace florecer mis días.','Te quiero hasta donde llegan las estrellas.','Contigo, todo se siente más amarillo y más bonito.','Gracias por existir, mi persona favorita.'];let pi=0;document.querySelector('#phraseButton').onclick=()=>{const el=document.querySelector('#phrase');el.style.opacity=0;setTimeout(()=>{el.textContent='“'+phrases[pi]+'”';el.style.opacity=1;pi=(pi+1)%phrases.length},180);sprinkle(18)};
-function sprinkle(n=20){for(let i=0;i<n;i++){const s=document.createElement('span');s.className='spark';s.textContent=Math.random()>.35?'✦':'♥';s.style.left=(20+Math.random()*60)+'%';s.style.top=(35+Math.random()*40)+'%';s.style.setProperty('--dx',(Math.random()-.5)*220+'px');document.body.append(s);setTimeout(()=>s.remove(),2300)}}document.querySelector('#loveButton').onclick=()=>{sprinkle(35);document.querySelector('#heartOutline').animate([{transform:'scale(1) rotate(-45deg)'},{transform:'scale(1.1) rotate(-45deg)'},{transform:'scale(1) rotate(-45deg)'}],{duration:700})};document.querySelector('#musicButton').onclick=()=>{const b=document.querySelector('#musicButton');b.textContent=b.textContent==='♫'?'♪':'♫';sprinkle(10)};
+const ambientHearts = document.getElementById('ambientHearts');
+const heartIcons = ['♥', '♡', '❤', '✦'];
+
+for (let i = 0; i < 22; i++) {
+  const heart = document.createElement('span');
+  heart.textContent = heartIcons[i % heartIcons.length];
+  heart.style.left = `${Math.random() * 100}%`;
+  heart.style.top = `${Math.random() * 100}%`;
+  heart.style.fontSize = `${10 + Math.random() * 18}px`;
+  heart.style.animationDuration = `${8 + Math.random() * 12}s`;
+  heart.style.animationDelay = `${Math.random() * 4}s`;
+  heart.style.opacity = (0.2 + Math.random() * 0.8).toFixed(2);
+  ambientHearts.appendChild(heart);
+}
+
+const sceneParticles = document.querySelector('.scene-particles');
+for (let i = 0; i < 120; i++) {
+  const dot = document.createElement('span');
+  dot.className = 'spark';
+  const size = Math.random() * 5 + 2;
+  const color = i % 3 === 0 ? 'rgba(255, 244, 155, 0.95)' : 'rgba(255,255,255,0.65)';
+  dot.style.position = 'absolute';
+  dot.style.left = `${Math.random() * 100}%`;
+  dot.style.top = `${Math.random() * 100}%`;
+  dot.style.width = `${size}px`;
+  dot.style.height = `${size}px`;
+  dot.style.borderRadius = '50%';
+  dot.style.background = color;
+  dot.style.boxShadow = `0 0 ${Math.random() * 12 + 6}px ${color}`;
+  sceneParticles.appendChild(dot);
+}

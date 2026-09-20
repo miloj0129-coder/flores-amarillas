@@ -1,62 +1,82 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#080b03" />
-  <title>Flores amarillas para ti 💛</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="pink-particles" aria-hidden="true"></div>
-  <main class="page">
-    <header class="top">
-      <div class="top-icons"><span></span><span></span><span></span></div>
-      <p class="signature">ALEX DEV</p>
-      <button class="music" id="musicButton" aria-label="Activar ambiente">♫</button>
-    </header>
-
-    <section class="love-universe" id="universe">
-      <canvas id="space" aria-label="Universo interactivo de flores amarillas"></canvas>
-      <div class="scene-content">
-        <p class="tiny-title">PARA TI, CON MUCHO CARIÑO</p>
-        <div class="heart-crown" aria-hidden="true">✦</div>
-        <div class="heart-outline" id="heartOutline"><span>Te amo <b>♥</b> <i>9</i></span></div>
-        <p class="scene-message">Eres mi todo <b>♥</b></p>
-        <div class="flower-garden" aria-hidden="true">
-          <span class="sunflower s1">🌻</span><span class="sunflower s2">🌻</span><span class="sunflower s3">🌼</span><span class="sunflower s4">🌻</span><span class="sunflower s5">🌼</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flores Amarillas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="phone-shell">
+      <header class="status-bar">
+        <div class="left-status">
+          <span class="network">Entel Pow...</span>
+          <span class="time">4:09</span>
         </div>
-        <div class="floating-words"><span>Te amo 💛</span><span>Siempre juntos ✨</span><span>Me encantas ♡</span><span>Mi persona favorita</span><span>Gracias por existir</span></div>
-        <button class="love-button" id="loveButton">Toca para llenar de amor <span>♡</span></button>
-      </div>
-    </section>
+        <div class="right-status">
+          <span class="signal">◔</span>
+          <span class="signal">◔</span>
+          <span class="battery">89</span>
+        </div>
+      </header>
 
-    <section class="code-card">
-      <div class="window-bar"><span class="red"></span><span class="yellow"></span><span class="green"></span><code>Style.css</code></div>
-      <pre><code><em>.Flores_Amarillas</em> {
-  position: absolute;
-  width: 90%;
-  font-size: 2rem;
-  font-family: <strong>"Te Amo"</strong>;
-  height: var(<b>--letter-love</b>);
-  transform: translateX(-50%);
-  background: var(<i>--letter</i>);
-}</code></pre>
-    </section>
+      <main class="main-panel">
+        <div class="pink-bg" aria-hidden="true"></div>
+        <div class="ambient-hearts" id="ambientHearts" aria-hidden="true"></div>
 
-    <section class="message-card">
-      <p class="eyebrow">UNA NOTA PARA TI</p>
-      <h1>Que nunca te falten<br><em>flores amarillas</em></h1>
-      <p>Porque mereces que cada día tenga un poquito de sol, magia y motivos para sonreír.</p>
-      <button id="phraseButton">Dame una frase bonita ✦</button>
-      <p class="phrase" id="phrase">“Eres la flor más bonita de este pequeño universo.”</p>
-    </section>
+        <div class="page-title">ALEX DEV</div>
 
-    <footer>HECHO CON AMOR · <span>🌼</span></footer>
-  </main>
-  <script src="script.js"></script>
-</body>
+        <section class="scene-window">
+          <div class="scene-glow"></div>
+          <div class="scene-particles" aria-hidden="true"></div>
+
+          <div class="heart-wrap">
+            <div class="heart-shape">
+              <span class="heart-text">Te amo <b>♥</b> <i>9</i></span>
+            </div>
+          </div>
+
+          <div class="floating-mini mini-a">🌼</div>
+          <div class="floating-mini mini-b">🌻</div>
+          <div class="floating-mini mini-c">🌼</div>
+          <div class="floating-mini mini-d">🌻</div>
+          <div class="floating-mini mini-e">🌼</div>
+          <div class="floating-mini mini-f">🌻</div>
+
+          <div class="callout callout-one">Te amo 💛</div>
+          <div class="callout callout-two">Mi mundo</div>
+          <div class="callout callout-three">Eres mi todo</div>
+          <div class="callout callout-four">💛</div>
+
+          <div class="scene-note">Eres mi todo 💛</div>
+        </section>
+
+        <section class="code-box">
+          <div class="code-topbar">
+            <div class="traffic">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="code-name">Style.css</div>
+          </div>
+
+          <pre class="code-block"><code><span class="number">1</span> <span class="selector">.Flores_Amarillas</span> <span class="punct">{</span>
+<span class="number">2</span>   <span class="prop">position</span>: <span class="value">absolute</span>;
+<span class="number">3</span>   <span class="prop">width</span>: <span class="value">90%</span>;
+<span class="number">4</span>   <span class="prop">font-size</span>: <span class="value">2rem</span>;
+<span class="number">5</span>   <span class="prop">font-family</span>: <span class="value">"Te Amo"</span>;
+<span class="number">6</span>   <span class="prop">height</span>: <span class="value">var(--letter-love)</span>;
+<span class="number">7</span>   <span class="prop">transform</span>: <span class="value">translateX(-50%)</span>;
+<span class="number">8</span>   <span class="prop">background</span>: <span class="value">var(--letter)</span>;
+<span class="number">9</span> <span class="punct">}</span></code></pre>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
