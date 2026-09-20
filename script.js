@@ -1,114 +1,105 @@
-const modal = document.getElementById('messageModal');
-const modalMessage = document.getElementById('modalMessage');
-const galaxy = document.getElementById('galaxy');
-const flowers = Array.from(document.querySelectorAll('.flower'));
+const universe = document.getElementById('universe');
+const modal = document.getElementById('modal');
+const message = document.getElementById('message');
+const flowers = [...document.querySelectorAll('.flower')];
 const messages = flowers.map((flower) => flower.dataset.message);
-let currentIndex = 0;
-let isDragging = false;
-let dragStartX = 0;
-let dragStartY = 0;
-let tiltX = -8;
-let tiltY = 18;
+let current = 0;
+let dragging = false;
+let moved = false;
+let startX = 0;
+let startY = 0;
+let rx = -7;
+let ry = 12;
 
-function createSparkles(x, y) {
-  for (let i = 0; i < 16; i += 1) {
-    const sparkle = document.createElement('span');
-    sparkle.textContent = i % 3 === 0 ? '✦' : '·';
-    sparkle.className = 'click-sparkle';
-    sparkle.style.left = `${x + (Math.random() - 0.5) * 110}px`;
-    sparkle.style.top = `${y + (Math.random() - 0.5) * 80}px`;
-    sparkle.style.setProperty('--dx', `${(Math.random() - 0.5) * 130}px`);
-    sparkle.style.setProperty('--dy', `${-35 - Math.random() * 100}px`);
-    galaxy.appendChild(sparkle);
-    setTimeout(() => sparkle.remove(), 1200);
+function setTilt() {
+  universe.style.setProperty('--rx', `${rx}deg`);
+  universe.style.setProperty('--ry', `${ry}deg`);
+}
+
+function sparkles(x, y) {
+  for (let i = 0; i < 15; i += 1) {
+    const star = document.createElement('i');
+    star.className = 'click-sparkle';
+    star.textContent = i % 3 === 0 ? '✦' : '·';
+    star.style.left = `${x + (Math.random() - 0.5) * 80}px`;
+    star.style.top = `${y + (Math.random() - 0.5) * 50}px`;
+    star.style.setProperty('--dx', `${(Math.random() - 0.5) * 130}px`);
+    star.style.setProperty('--dy', `${-40 - Math.random() * 90}px`);
+    universe.appendChild(star);
+    setTimeout(() => star.remove(), 1200);
   }
 }
 
-function openMessage(message, x = 0, y = 0) {
-  modalMessage.textContent = `“${message}”`;
+function showMessage(text, x = universe.clientWidth / 2, y = universe.clientHeight / 2) {
+  message.textContent = `“${text}”`;
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
-  createSparkles(x, y);
-}
-
-function updateGalaxyTilt() {
-  galaxy.style.setProperty('--tiltX', `${tiltX}deg`);
-  galaxy.style.setProperty('--tiltY', `${tiltY}deg`);
+  sparkles(x, y);
 }
 
 flowers.forEach((flower, index) => {
   flower.addEventListener('click', (event) => {
-    currentIndex = index;
-    const rect = galaxy.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    openMessage(flower.dataset.message, x, y);
+    if (moved) return;
+    current = index;
+    const rect = universe.getBoundingClientRect();
+    showMessage(flower.dataset.message, event.clientX - rect.left, event.clientY - rect.top);
   });
 });
 
-document.getElementById('surpriseButton').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % messages.length;
-  openMessage(messages[currentIndex], galaxy.clientWidth / 2, galaxy.clientHeight / 2);
+document.getElementById('surprise').addEventListener('click', () => {
+  current = (current + 1) % messages.length;
+  showMessage(messages[current]);
 });
 
-document.getElementById('anotherButton').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % messages.length;
-  modalMessage.textContent = `“${messages[currentIndex]}”`;
+document.getElementById('next').addEventListener('click', () => {
+  current = (current + 1) % messages.length;
+  message.textContent = `“${messages[current]}”`;
 });
 
-document.getElementById('closeModal').addEventListener('click', () => {
+document.getElementById('close').addEventListener('click', () => {
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
 });
-
 modal.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    document.getElementById('closeModal').click();
-  }
+  if (event.target === modal) document.getElementById('close').click();
 });
-
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && modal.classList.contains('open')) {
-    document.getElementById('closeModal').click();
-  }
+  if (event.key === 'Escape' && modal.classList.contains('open')) document.getElementById('close').click();
 });
 
-galaxy.addEventListener('pointerdown', (event) => {
-  isDragging = true;
-  dragStartX = event.clientX;
-  dragStartY = event.clientY;
-  galaxy.setPointerCapture(event.pointerId);
+universe.addEventListener('pointerdown', (event) => {
+  if (event.target.closest('.flower')) return;
+  dragging = true;
+  moved = false;
+  startX = event.clientX;
+  startY = event.clientY;
+  universe.setPointerCapture(event.pointerId);
 });
-
-galaxy.addEventListener('pointermove', (event) => {
-  if (!isDragging) return;
-  const deltaX = event.clientX - dragStartX;
-  const deltaY = event.clientY - dragStartY;
-  tiltY += deltaX * 0.12;
-  tiltX -= deltaY * 0.12;
-  tiltX = Math.max(-28, Math.min(18, tiltX));
-  tiltY = Math.max(-30, Math.min(30, tiltY));
-  dragStartX = event.clientX;
-  dragStartY = event.clientY;
-  updateGalaxyTilt();
+universe.addEventListener('pointermove', (event) => {
+  if (!dragging) return;
+  const dx = event.clientX - startX;
+  const dy = event.clientY - startY;
+  if (Math.abs(dx) + Math.abs(dy) > 5) moved = true;
+  ry = Math.max(-30, Math.min(30, ry + dx * 0.12));
+  rx = Math.max(-28, Math.min(18, rx - dy * 0.12));
+  startX = event.clientX;
+  startY = event.clientY;
+  setTilt();
 });
+function stopDragging() {
+  dragging = false;
+  setTimeout(() => { moved = false; }, 40);
+}
+universe.addEventListener('pointerup', stopDragging);
+universe.addEventListener('pointercancel', stopDragging);
+universe.addEventListener('pointerleave', stopDragging);
 
-galaxy.addEventListener('pointerup', () => {
-  isDragging = false;
-});
-
-galaxy.addEventListener('pointerleave', () => {
-  isDragging = false;
-});
-
-updateGalaxyTilt();
-
-const starLayer = document.getElementById('stars');
-for (let i = 0; i < 75; i += 1) {
+const stars = document.getElementById('stars');
+for (let i = 0; i < 90; i += 1) {
   const star = document.createElement('i');
   star.style.left = `${Math.random() * 100}%`;
   star.style.top = `${Math.random() * 100}%`;
   star.style.animationDelay = `${Math.random() * 3}s`;
-  star.style.opacity = (0.3 + Math.random() * 0.7).toFixed(2);
-  starLayer.appendChild(star);
+  stars.appendChild(star);
 }
+setTilt();
