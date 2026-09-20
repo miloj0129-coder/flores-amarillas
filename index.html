@@ -1,82 +1,63 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flores Amarillas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Pacifico&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="phone-shell">
-      <header class="status-bar">
-        <div class="left-status">
-          <span class="network">Entel Pow...</span>
-          <span class="time">4:09</span>
-        </div>
-        <div class="right-status">
-          <span class="signal">◔</span>
-          <span class="signal">◔</span>
-          <span class="battery">89</span>
-        </div>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070b16" />
+  <title>🌻 Galaxia de Amor + Flores Amarillas ✨💛</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="galaxy-app">
+    <header class="hero-header">
+      <p class="eyebrow">✦ un universo hecho para ti ✦</p>
+      <h1>🌻 Galaxia de Amor<br><em>+ Flores Amarillas</em> ✨💛</h1>
+      <p class="subtitle">Mueve la galaxia con el mouse o touch y toca una flor para recibir un mensaje lleno de cariño.</p>
+    </header>
 
-      <main class="main-panel">
-        <div class="pink-bg" aria-hidden="true"></div>
-        <div class="ambient-hearts" id="ambientHearts" aria-hidden="true"></div>
+    <section class="galaxy" id="galaxy" aria-label="Galaxia interactiva de flores amarillas">
+      <div class="nebula nebula-one"></div>
+      <div class="nebula nebula-two"></div>
+      <div class="stars" id="stars" aria-hidden="true"></div>
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="sun-core"><span>♡</span></div>
+      <div class="instruction">ARRASTRA LA GALAXIA<br><small>y toca una flor</small></div>
 
-        <div class="page-title">ALEX DEV</div>
+      <button class="flower flower-one" data-message="Eres la razón por la que mis días se sienten más luminosos y llenos de calma." aria-label="Abrir frase de la flor uno">🌻</button>
+      <button class="flower flower-two" data-message="Te quiero con la misma dulzura con la que el sol despierta cada mañana." aria-label="Abrir frase de la flor dos">🌼</button>
+      <button class="flower flower-three" data-message="Cada vez que pienso en ti, mi corazón se llena de flores, luz y sueños bonitos." aria-label="Abrir frase de la flor tres">🌻</button>
+      <button class="flower flower-four" data-message="Eres mi lugar favorito para volver, mi calma y mi alegría en una sola persona." aria-label="Abrir frase de la flor cuatro">🌼</button>
+      <button class="flower flower-five" data-message="No importa cuán grande sea el universo, contigo todo se siente más tierno y bello." aria-label="Abrir frase de la flor cinco">🌻</button>
+      <button class="flower flower-six" data-message="Gracias por existir, por iluminarme y por hacer que mi mundo se sienta más bonito." aria-label="Abrir frase de la flor seis">🌼</button>
 
-        <section class="scene-window">
-          <div class="scene-glow"></div>
-          <div class="scene-particles" aria-hidden="true"></div>
+      <div class="tiny-message">hecho con cariño 💛</div>
+    </section>
 
-          <div class="heart-wrap">
-            <div class="heart-shape">
-              <span class="heart-text">Te amo <b>♥</b> <i>9</i></span>
-            </div>
-          </div>
+    <section class="message-panel">
+      <span class="panel-icon">🌼</span>
+      <p>una nota para tu corazón</p>
+      <h2>Siempre habrá una razón<br><em>para volver a florecer.</em></h2>
+      <button class="surprise-button" id="surpriseButton">Dame una sorpresa ✨</button>
+    </section>
 
-          <div class="floating-mini mini-a">🌼</div>
-          <div class="floating-mini mini-b">🌻</div>
-          <div class="floating-mini mini-c">🌼</div>
-          <div class="floating-mini mini-d">🌻</div>
-          <div class="floating-mini mini-e">🌼</div>
-          <div class="floating-mini mini-f">🌻</div>
+    <footer>🌻 creado con amor · toca, explora y sonríe 💛</footer>
+  </main>
 
-          <div class="callout callout-one">Te amo 💛</div>
-          <div class="callout callout-two">Mi mundo</div>
-          <div class="callout callout-three">Eres mi todo</div>
-          <div class="callout callout-four">💛</div>
-
-          <div class="scene-note">Eres mi todo 💛</div>
-        </section>
-
-        <section class="code-box">
-          <div class="code-topbar">
-            <div class="traffic">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="code-name">Style.css</div>
-          </div>
-
-          <pre class="code-block"><code><span class="number">1</span> <span class="selector">.Flores_Amarillas</span> <span class="punct">{</span>
-<span class="number">2</span>   <span class="prop">position</span>: <span class="value">absolute</span>;
-<span class="number">3</span>   <span class="prop">width</span>: <span class="value">90%</span>;
-<span class="number">4</span>   <span class="prop">font-size</span>: <span class="value">2rem</span>;
-<span class="number">5</span>   <span class="prop">font-family</span>: <span class="value">"Te Amo"</span>;
-<span class="number">6</span>   <span class="prop">height</span>: <span class="value">var(--letter-love)</span>;
-<span class="number">7</span>   <span class="prop">transform</span>: <span class="value">translateX(-50%)</span>;
-<span class="number">8</span>   <span class="prop">background</span>: <span class="value">var(--letter)</span>;
-<span class="number">9</span> <span class="punct">}</span></code></pre>
-        </section>
-      </main>
+  <div class="modal" id="messageModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-modal" id="closeModal" aria-label="Cerrar mensaje">×</button>
+      <div class="modal-flower">🌻</div>
+      <p class="eyebrow">mensaje encontrado</p>
+      <h2 id="modalTitle">Para ti, con mucho cariño</h2>
+      <p class="modal-message" id="modalMessage"></p>
+      <button class="surprise-button" id="anotherButton">Otra flor ✦</button>
     </div>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
