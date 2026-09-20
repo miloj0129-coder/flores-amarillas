@@ -3,67 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#050816" />
-  <title>🌻 Galaxia de Amor · Flores Amarillas</title>
+  <meta name="theme-color" content="#050907" />
+  <title>🌻 Galaxia de Amor</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="app">
-    <header class="hero">
-      <p class="eyebrow">✦ una galaxia hecha con cariño ✦</p>
+  <main class="experience">
+    <canvas id="space" aria-hidden="true"></canvas>
+    <div class="aurora aurora-a"></div><div class="aurora aurora-b"></div>
+    <header class="intro">
+      <p class="eyebrow">✦ un rincón del universo para ti ✦</p>
       <h1>🌻 Galaxia de Amor<br><em>+ Flores Amarillas</em> ✨</h1>
-      <p class="subtitle">Arrastra para viajar entre las estrellas. Toca una flor y deja que te cuente algo bonito.</p>
+      <p class="subtext">Entra despacio. Arrastra para viajar, acerca el cursor a las flores y toca la que te llame.</p>
     </header>
 
-    <section class="universe" id="universe" aria-label="Galaxia interactiva">
-      <div class="stars" id="stars"></div>
-      <div class="cloud cloud-a"></div><div class="cloud cloud-b"></div>
-      <div class="dust dust-a"></div><div class="dust dust-b"></div>
-      <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-      <div class="sun"><span>♡</span></div>
-      <div class="hint">ARRASTRA PARA EXPLORAR<br><small>TOCA UNA FLOR</small></div>
+    <section class="galaxy" id="galaxy" aria-label="Galaxia interactiva de flores amarillas">
+      <div class="milky-way"></div><div class="ground-glow"></div>
+      <div class="orbital-ring ring-back"></div><div class="orbital-ring ring-front"></div>
+      <div class="love-sun"><span>♡</span></div>
+      <p class="hint">ARRASTRA PARA MIRAR ALREDEDOR<br><small>cada flor guarda un mensaje</small></p>
+      <div class="message-trail trail-a">siempre contigo</div><div class="message-trail trail-b">mi lugar favorito</div><div class="message-trail trail-c">te pienso 💛</div>
 
-      <button class="flower flower-1" data-message="Eres esa persona que hace que hasta mis días más nublados encuentren un poquito de sol." aria-label="Abrir mensaje de la flor uno">
-        <span class="stem"></span><span class="leaf leaf-left"></span><span class="leaf leaf-right"></span><span class="petals"></span><span class="flower-center"></span>
+      <button class="botanical flower sunflower f1" data-message="Me encanta la forma en que haces que todo se sienta un poquito más bonito." aria-label="Flor con mensaje">
+        <span class="stem"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="petal-set"></span><span class="center"></span>
       </button>
-      <button class="flower flower-2" data-message="Me gusta tenerte cerca, incluso en la distancia; pensarte siempre me deja el corazón calientito." aria-label="Abrir mensaje de la flor dos">
-        <span class="stem"></span><span class="leaf leaf-left"></span><span class="leaf leaf-right"></span><span class="petals"></span><span class="flower-center"></span>
+      <button class="botanical flower daisy f2" data-message="Si hoy necesitas una señal, aquí está: eres importante, eres querida y mereces cosas hermosas." aria-label="Flor con mensaje">
+        <span class="stem"></span><span class="leaf l1"></span><span class="petal-set"></span><span class="center"></span>
       </button>
-      <button class="flower flower-3" data-message="Si pudiera regalarte algo todos los días, te regalaría un abrazo y una razón para sonreír." aria-label="Abrir mensaje de la flor tres">
-        <span class="stem"></span><span class="leaf leaf-left"></span><span class="leaf leaf-right"></span><span class="petals"></span><span class="flower-center"></span>
+      <button class="botanical flower rose f3" data-message="Gracias por estar. Tu presencia tiene esa magia tranquila que hace bien al corazón." aria-label="Flor con mensaje">
+        <span class="stem"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="petal-set"></span><span class="center"></span>
       </button>
-      <button class="flower flower-4" data-message="Gracias por existir de esa forma tan bonita que hace que el mundo se sienta menos pesado." aria-label="Abrir mensaje de la flor cuatro">
-        <span class="stem"></span><span class="leaf leaf-left"></span><span class="leaf leaf-right"></span><span class="petals"></span><span class="flower-center"></span>
+      <button class="botanical flower sunflower f4" data-message="Ojalá pudieras verte como te veo yo: luminosa, especial y absolutamente irremplazable." aria-label="Flor con mensaje">
+        <span class="stem"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="petal-set"></span><span class="center"></span>
       </button>
-      <button class="flower flower-5" data-message="Contigo no necesito buscar otra galaxia: mi lugar favorito empieza donde estás tú." aria-label="Abrir mensaje de la flor cinco">
-        <span class="stem"></span><span class="leaf leaf-left"></span><span class="leaf leaf-right"></span><span class="petals"></span><span class="flower-center"></span>
+      <button class="botanical flower daisy f5" data-message="Contigo hasta el silencio se siente bonito. Qué suerte coincidir contigo en este universo." aria-label="Flor con mensaje">
+        <span class="stem"></span><span class="leaf l1"></span><span class="petal-set"></span><span class="center"></span>
       </button>
-      <button class="flower flower-6" data-message="Ojalá pudieras verte como te veo yo: especial, luminosa y completamente irremplazable." aria-label="Abrir mensaje de la flor seis">
-        <span class="stem"></span><span class="leaf leaf-left"></span><span class="leaf leaf-right"></span><span class="petals"></span><span class="flower-center"></span>
+      <button class="botanical flower rose f6" data-message="Te guardo un abrazo enorme, de esos que dicen sin palabras: aquí estoy y te quiero mucho." aria-label="Flor con mensaje">
+        <span class="stem"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="petal-set"></span><span class="center"></span>
       </button>
-      <p class="made-with">hecho con luz para ti <span>♥</span></p>
+      <p class="bottom-note">hecho con luz, paciencia y mucho cariño <span>♥</span></p>
     </section>
 
-    <section class="letter">
-      <div class="letter-flower">🌼</div>
-      <p class="eyebrow">una pequeña verdad</p>
-      <h2>Siempre habrá una razón<br><em>para volver a florecer.</em></h2>
-      <button class="surprise" id="surprise">Abrir una sorpresa <span>✦</span></button>
-    </section>
-    <footer>🌻 toca · arrastra · descubre · sonríe 💛</footer>
+    <button class="surprise" id="surprise">✨ encontrar una sorpresa</button>
+    <footer>toca una flor · mueve la galaxia · quédate un ratito 🌻</footer>
   </main>
 
   <div class="modal" id="modal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <button class="close" id="close" aria-label="Cerrar">×</button>
-      <div class="modal-flower"><span class="petals-big"></span><span class="center-big"></span></div>
-      <p class="eyebrow">una flor guardaba esto para ti</p>
-      <h2 id="modal-title">Con mucho cariño</h2>
-      <p class="message" id="message"></p>
-      <button class="surprise" id="next">Otra flor <span>✦</span></button>
+      <div class="modal-bloom">🌻</div><p class="eyebrow">una flor te encontró</p>
+      <h2 id="modal-title">Para ti</h2><p class="modal-message" id="modal-message"></p>
+      <button class="another" id="another">Quiero otra flor ✦</button>
     </div>
   </div>
   <script src="script.js"></script>
